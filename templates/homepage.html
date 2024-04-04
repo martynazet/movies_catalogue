@@ -9,14 +9,14 @@
     </div>
     {% for movie in movies[:8]%}
     <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-            <img class="card-img-top" src="http://placehold.it//300x500" alt="">
+        <div class="card h-100">            
+            <img class="card-img-top" src={{tmdb_image_url(movie.poster_path, "w342")}} alt="">
             <div class="card-body">
                 <h4 class="card-title">{{movie.title}}</h4>
             </div>
             <div class="card-footer text-center">
                 <a href="#" class="btn btn-primary">Pokaż więcej</a>
-            </div>
+            </div>            
         </div>
     </div>
     {% endfor %}
