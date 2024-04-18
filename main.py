@@ -24,9 +24,9 @@ def homepage():
     selected_list = request.args.get('list_type', 'popular')
     if selected_list not in [list_item['value'] for list_item in AVAILABLE_LISTS]:
         return redirect(url_for('homepage', list_type='popular'))
-    active_list = selected_list
+    
     movies = tmdb_client.get_movies(how_many=8, list_type=selected_list)
-    return render_template('homepage.html', movies=movies, movie_details='movie_details', available_lists=AVAILABLE_LISTS, active_list=active_list)
+    return render_template('homepage.html', movies=movies, movie_details='movie_details', available_lists=AVAILABLE_LISTS, active_list=selected_list)
 
 
 @app.route('/movie/<movie_id>')
