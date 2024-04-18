@@ -1,6 +1,6 @@
 {% extends "index.html" %}
 
-{% block content %}
+{% block content %}AC
 
 <div class="row">
     <div class="col-lg-12 text-center">
@@ -12,7 +12,7 @@
         <a href="{{ url_for('homepage', list_type=list['value'], active=list['value']) }}" class="btn btn-outline-info {% if active_list == list['value'] %}active{% endif %}">{{list['name']|title}}</a>
         {% endfor %}
     </div>
-    {% for movie in movies[:8]%}
+    {% for movie in movies%}
     <div class="col-lg-3 col-md-6 mb-4">
         <div class="card h-100">            
             <img class="card-img-top" src={{tmdb_image_url(movie.poster_path, "w342")}} alt="">
