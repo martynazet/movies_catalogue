@@ -26,7 +26,7 @@ def homepage():
         return redirect(url_for('homepage', list_type='popular'))
     
     movies = tmdb_client.get_movies(how_many=8, list_type=selected_list)
-    return render_template('homepage.html', movies=movies, movie_details='movie_details', available_lists=AVAILABLE_LISTS, active_list=selected_list)
+    return render_template('homepage.html', movies=movies, available_lists=AVAILABLE_LISTS, active_list=selected_list)
 
 
 @app.route('/movie/<movie_id>')
