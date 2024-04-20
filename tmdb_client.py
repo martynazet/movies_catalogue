@@ -8,7 +8,7 @@ app = Flask(__name__)
 API_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwY2UxNjg4OGI0NGZlZjM4ZDIwMDdjZDEwNDhjYWI2MiIsInN1YiI6IjY2MDFiMzU2NzcwNzAwMDE3YzBmOTE4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.TRhuUz1qAjH3037RxEcujn46ABN1Xs02BnScPtTEbx0"
 
 
-def authorization(endpoint):
+def make_request(endpoint):
     headers = {
         "Authorization": f"Bearer {API_TOKEN}"
         }
@@ -19,7 +19,7 @@ def authorization(endpoint):
 
 def get_movies_list(list_type='popular'):    
     endpoint = f"https://api.themoviedb.org/3/movie/{list_type}"
-    return authorization(endpoint)
+    return make_request(endpoint)
 
 
 def get_poster_url(poster_path, size='w342'):
@@ -35,10 +35,10 @@ def get_movies(how_many, list_type):
 
 def get_single_movie(movie_id):
     endpoint = f"https://api.themoviedb.org/3/movie/{movie_id}"
-    return authorization(endpoint)
+    return make_request(endpoint)
 
 
 def get_single_movie_cast(movie_id):
     endpoint = f"https://api.themoviedb.org/3/movie/{movie_id}/credits"
-    return authorization(endpoint)["cast"]
+    return make_request(endpoint)["cast"]
 
